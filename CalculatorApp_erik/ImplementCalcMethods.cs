@@ -60,16 +60,20 @@ namespace CalculatorApp_erik
         public static double MultiplicationMethod(params double[] numbers)
         {
             result = numbers[0];
-            for(int i = 1; i < numbers.Length; i++)
+            for (int i = 1; i < numbers.Length; i++)
             {
-                if ()
+                if (numbers == null || numbers.Length == 0)
+                {
+                    Console.WriteLine("Invalid entry: Please enter a number to access this method...");
+                    return 0;
+                } 
+                else
+                {
+                    result *= numbers[i];
+                }
             }
-            result = 0;
-            foreach (double num in numbers)
-            {
-                result *= num;
-            }
-            return result;
+                return result;
+            
         }
 
 
