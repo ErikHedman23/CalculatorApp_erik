@@ -11,12 +11,12 @@ namespace CalculatorApp_erik
 {
     public class ImplementCalcMethods : ICalculator
     {
-
+        public static double result = 0;
 
         public static double AddMethod(params double[] numbers)
         {
 
-            double result = 0;
+            result = 0;
             foreach (double num in numbers)
             {
                 result += num;
@@ -28,18 +28,17 @@ namespace CalculatorApp_erik
 
         public static double DivisionMethod(params double[] numbers)
         {
-            double result = 0;
-            for(int i = 1; i < numbers.Length; i++)
-            {
-                if (numbers[i] != 0)
-                {
-                    result = numbers[i];
-                    break;
-                }
-            }
+            result = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
-                result /= numbers[i];
+                if (numbers == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    result /= numbers[i];
+                }
             }
             return result;
         }
@@ -48,7 +47,7 @@ namespace CalculatorApp_erik
 
         public static double ModulusMethod(params double[] numbers)
         {
-            double result = 0;
+            result = 0;
             foreach (double num in numbers)
             {
                 result %= num;
@@ -60,7 +59,12 @@ namespace CalculatorApp_erik
 
         public static double MultiplicationMethod(params double[] numbers)
         {
-            double result = 0;
+            result = numbers[0];
+            for(int i = 1; i < numbers.Length; i++)
+            {
+                if ()
+            }
+            result = 0;
             foreach (double num in numbers)
             {
                 result *= num;
@@ -72,40 +76,53 @@ namespace CalculatorApp_erik
 
         public static double SquareRootMethod(params double[] numbers)
         {
-            double result = 0;
-            foreach (double num in numbers)
+            result = 0;
+            if (numbers == null || numbers.Length == 0)
             {
-                result = Math.Sqrt(num);
+                Console.WriteLine("Invalid entry: please input a number to run calculator correctly...");
+                return 0;
+            }
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                result += Math.Sqrt(numbers[i]);
+
             }
             return result;
+
+
         }
 
 
 
         public static double SubMethod(params double[] numbers)
         {
-            double result = 0;
-            foreach (double num in numbers)
+            result = numbers[0];
+            for (int i = 1; i < numbers.Length; i++)
             {
-                result -= num;
+                if (numbers == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    result -= numbers[i];
+                }
             }
             return result;
+
         }
         public static void Calculator()
         {
             bool userSelect;
-            double result = 0;
+            result = 0;
+
+            Console.WriteLine("Enter the numbers you would like to calculate (seperated by spaces):\n");
+            var userInput = Console.ReadLine();
+            string[] numbersInputed = userInput.Split(' ');
+            double[] numbers = new double[numbersInputed.Length];
             do
             {
-
-
-                Console.WriteLine("Enter the numbers you would like to calculate (seperated by spaces):\n");
-                var userInput = Console.ReadLine();
-                string[] numbersInputed = userInput.Split(' ');
-                double[] numbers = new double[numbersInputed.Length];
-
-
-
 
                 for (int i = 0; i < numbersInputed.Length; i++)
                 {
@@ -131,24 +148,24 @@ namespace CalculatorApp_erik
                 switch (userOutput)
                 {
                     case 1:
-                        result = AddMethod();
+                        result = AddMethod(numbers);
                         break;
-                        
+
                     case 2:
-                         result = SubMethod();
+                        result = SubMethod(numbers);
                         break;
-                        
+
                     case 3:
-                        result = MultiplicationMethod();
+                        result = MultiplicationMethod(numbers);
                         break;
                     case 4:
-                      result = DivisionMethod();
+                        result = DivisionMethod(numbers);
                         break;
                     case 5:
-                        result = ModulusMethod();
+                        result = ModulusMethod(numbers);
                         break;
                     case 6:
-                        result = SquareRootMethod();
+                        result = SquareRootMethod(numbers);
                         break;
                     default:
                         InvalidReturn();
@@ -157,12 +174,12 @@ namespace CalculatorApp_erik
                 }
             } while (userSelect == false);
             Console.WriteLine($"Your result is: {result}");
-            
+
         }
         public static void InvalidReturn()
         {
-             Console.WriteLine("Invalid Entry, please select one of the following options.");
-            
+            Console.WriteLine("Invalid Entry, please select one of the following options.");
+
         }
 
     }
