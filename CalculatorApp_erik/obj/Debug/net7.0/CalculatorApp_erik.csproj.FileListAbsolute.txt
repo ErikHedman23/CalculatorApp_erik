@@ -3,3 +3,13 @@ C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.AssemblyInfoInputs.cache
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.AssemblyInfo.cs
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.csproj.CoreCompileInputs.cache
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\bin\Debug\net7.0\CalculatorApp_erik.exe
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\bin\Debug\net7.0\CalculatorApp_erik.deps.json
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\bin\Debug\net7.0\CalculatorApp_erik.runtimeconfig.json
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\bin\Debug\net7.0\CalculatorApp_erik.dll
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\bin\Debug\net7.0\CalculatorApp_erik.pdb
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.dll
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\refint\CalculatorApp_erik.dll
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.pdb
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.genruntimeconfig.cache
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\ref\CalculatorApp_erik.dll

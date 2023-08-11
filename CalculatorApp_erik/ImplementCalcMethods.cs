@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -10,7 +11,7 @@ namespace CalculatorApp_erik
 {
     public class ImplementCalcMethods : ICalculator
     {
-       
+
 
         public static double AddMethod(params double[] numbers)
         {
@@ -23,19 +24,27 @@ namespace CalculatorApp_erik
             return result;
         }
 
-        
+
 
         public static double DivisionMethod(params double[] numbers)
         {
             double result = 0;
-            foreach (double num in numbers)
+            for(int i = 1; i < numbers.Length; i++)
             {
-                result /= num;
+                if (numbers[i] != 0)
+                {
+                    result = numbers[i];
+                    break;
+                }
+            }
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                result /= numbers[i];
             }
             return result;
         }
 
-        
+
 
         public static double ModulusMethod(params double[] numbers)
         {
@@ -47,7 +56,7 @@ namespace CalculatorApp_erik
             return result;
         }
 
-        
+
 
         public static double MultiplicationMethod(params double[] numbers)
         {
@@ -59,7 +68,7 @@ namespace CalculatorApp_erik
             return result;
         }
 
-        
+
 
         public static double SquareRootMethod(params double[] numbers)
         {
@@ -71,7 +80,7 @@ namespace CalculatorApp_erik
             return result;
         }
 
-        
+
 
         public static double SubMethod(params double[] numbers)
         {
@@ -82,34 +91,79 @@ namespace CalculatorApp_erik
             }
             return result;
         }
-        public static double Calculator()
+        public static void Calculator()
         {
-            Console.WriteLine("Enter the numbers you would like to calculate (seperated by spaces):\n");
-            var userInput = Console.ReadLine();
-            string[] numbersInputed = userInput.Split(' ');
-            double[] numbers = new double[numbersInputed.Length];
+            bool userSelect;
+            double result = 0;
+            do
+            {
 
-            for (double i = 0; i < numbersInputed.Length; i++)
-            {
-                if (double.TryParse(numbersInputed[i], out double num))
+
+                Console.WriteLine("Enter the numbers you would like to calculate (seperated by spaces):\n");
+                var userInput = Console.ReadLine();
+                string[] numbersInputed = userInput.Split(' ');
+                double[] numbers = new double[numbersInputed.Length];
+
+
+
+
+                for (int i = 0; i < numbersInputed.Length; i++)
                 {
-                    numbers[i] = num;
+                    if (double.TryParse(numbersInputed[i], out double num))
+                    {
+                        numbers[i] = num;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Invalid Input: {numbersInputed[i]} is not a valid");
+                        continue;
+                    }
                 }
-                else
-                {
-                    Console.WriteLine($"Invalid Input: {numbersInputed[i]} is not a valid");
-                }
-            }
-            Console.WriteLine("What would you like to do? Enter the corresponding number to select your method of opration:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Find the square root\n6. Find the remainder");
-            var userSelect = Console.ReadLine();
-            switch(userSelect)
+            } while (false);
+
+
+            do
             {
-                case 1:
-                    AddMethod();
-            }
+
+
+                Console.WriteLine("Enter the corresponding number to select your method of opration:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Find the square root\n6. Find the remainder\n");
+                userSelect = double.TryParse(Console.ReadLine(), out double userOutput);
+                switch (userOutput)
+                {
+                    case 1:
+                        result = AddMethod();
+                        break;
+                        
+                    case 2:
+                         result = SubMethod();
+                        break;
+                        
+                    case 3:
+                        result = MultiplicationMethod();
+                        break;
+                    case 4:
+                      result = DivisionMethod();
+                        break;
+                    case 5:
+                        result = ModulusMethod();
+                        break;
+                    case 6:
+                        result = SquareRootMethod();
+                        break;
+                    default:
+                        InvalidReturn();
+                        continue;
+
+                }
+            } while (userSelect == false);
+            Console.WriteLine($"Your result is: {result}");
+            
+        }
+        public static void InvalidReturn()
+        {
+             Console.WriteLine("Invalid Entry, please select one of the following options.");
             
         }
 
-        
     }
 }
