@@ -47,12 +47,34 @@ namespace CalculatorApp_erik
 
         public static double ModulusMethod(params double[] numbers)
         {
-            result = 0;
-            foreach (double num in numbers)
+            var resultMod = new double[numbers.Length];
+            bool userInput = true;
+            do
             {
-                result %= num;
-            }
-            return result;
+                foreach (double num in numbers)
+                {
+                    Console.WriteLine($"By what number would you like to find the modulus of {num}?");
+                    userInput = double.TryParse(Console.ReadLine(), out double numToMod);
+                    if (!userInput)
+                    {
+                        Console.WriteLine("Invalid entry");
+                        continue;
+
+                    }
+                    else
+                    {
+                        resultMod[i] = num % numToMod;
+
+                    }
+                }
+                for (int i = 0; i < numbers.Length; i++)
+                {
+
+                    Console.WriteLine($"The remainder of {numbers[i]} is {result[i]}");
+                }
+            } while (!userInput);
+
+            return resultMod;
         }
 
 
@@ -66,14 +88,14 @@ namespace CalculatorApp_erik
                 {
                     Console.WriteLine("Invalid entry: Please enter a number to access this method...");
                     return 0;
-                } 
+                }
                 else
                 {
                     result *= numbers[i];
                 }
             }
-                return result;
-            
+            return result;
+
         }
 
 
@@ -87,11 +109,11 @@ namespace CalculatorApp_erik
                 return 0;
             }
 
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                result += Math.Sqrt(numbers[i]);
 
-            }
+
+            result += Math.Sqrt(numbers[0]);
+
+
             return result;
 
 
@@ -166,10 +188,10 @@ namespace CalculatorApp_erik
                         result = DivisionMethod(numbers);
                         break;
                     case 5:
-                        result = ModulusMethod(numbers);
+                        result = SquareRootMethod(numbers);
                         break;
                     case 6:
-                        result = SquareRootMethod(numbers);
+                        result = ModulusMethod(numbers);
                         break;
                     default:
                         InvalidReturn();
