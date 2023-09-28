@@ -11,7 +11,7 @@ namespace CalculatorApp_erik
 {
     public class ImplementCalcMethods : ICalculator
     {
-        public static double result = 0;
+        private static double result = 0;
 
         public static double AddMethod(params double[] numbers)
         {
@@ -63,7 +63,7 @@ namespace CalculatorApp_erik
                     }
                     else
                     {
-                        resultMod[i] = num % numToMod;
+                        resultMod[0] = num % numToMod;
 
                     }
                 }
