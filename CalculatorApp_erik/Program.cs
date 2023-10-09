@@ -3,5 +3,13 @@
 using CalculatorApp_erik;
 //List<ICalculator> methodsStored = new List<ICalculator>();
 
+bool constance = true;
 
-ImplementCalcMethods.Calculator();
+do
+{
+    ImplementCalcMethods.UserSelect();
+    ImplementCalcMethods.ContinueOrEnd();
+
+} while (constance);
+
+

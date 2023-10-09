@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CalculatorApp_erik
 {
     public class ImplementCalcMethods : ICalculator
     {
-        private static double result = 0;
+        internal static double result = 0;
 
         public static double AddMethod(params double[] numbers)
         {
@@ -45,37 +47,37 @@ namespace CalculatorApp_erik
 
 
 
-        public static double ModulusMethod(params double[] numbers)
-        {
-            var resultMod = new double[numbers.Length];
-            bool userInput = true;
-            do
-            {
-                foreach (double num in numbers)
-                {
-                    Console.WriteLine($"By what number would you like to find the modulus of {num}?");
-                    userInput = double.TryParse(Console.ReadLine(), out double numToMod);
-                    if (!userInput)
-                    {
-                        Console.WriteLine("Invalid entry");
-                        continue;
+        //public static double ModulusMethod(params double[] numbers)
+        //{
+        //    var resultMod = new double[numbers.Length];
+        //    bool userInput = true;
+        //    do
+        //    {
+        //        foreach (double num in numbers)
+        //        {
+        //            Console.WriteLine($"By what number would you like to find the modulus of {num}?");
+        //            userInput = double.TryParse(Console.ReadLine(), out double numToMod);
+        //            if (!userInput)
+        //            {
+        //                Console.WriteLine("Invalid entry");
+        //                continue;
 
-                    }
-                    else
-                    {
-                        resultMod[0] = num % numToMod;
+        //            }
+        //            else
+        //            {
+        //                resultMod[0] = num % numToMod;
 
-                    }
-                }
-                for (int i = 0; i < numbers.Length; i++)
-                {
+        //            }
+        //        }
+        //        for (int i = 0; i < numbers.Length; i++)
+        //        {
 
-                    Console.WriteLine($"The remainder of {numbers[i]} is {result[i]}");
-                }
-            } while (!userInput);
+        //            Console.WriteLine($"The remainder of {numbers[i]} is {result[i]}");
+        //        }
+        //    } while (!userInput);
 
-            return resultMod;
-        }
+        //    return resultMod;
+        //}
 
 
 
@@ -100,21 +102,32 @@ namespace CalculatorApp_erik
 
 
 
-        public static double SquareRootMethod(params double[] numbers)
+        public static void SquareRootMethod()
         {
-            result = 0;
-            if (numbers == null || numbers.Length == 0)
+            double number = 0;
+            result = number;
+            bool userInput;
+            do
             {
-                Console.WriteLine("Invalid entry: please input a number to run calculator correctly...");
-                return 0;
-            }
+                Console.WriteLine("Enter a number to find the square root of it.  Enter only one number:");
+                userInput = double.TryParse(Console.ReadLine(), out number);
+                if (!userInput)
+                {
+                    Console.WriteLine("Invalid entry: please input a number to run calculator correctly...");
+                    break;
+                }
+                else
+                {
+                result += Math.Sqrt(number);
+
+                }
 
 
 
-            result += Math.Sqrt(numbers[0]);
+            } while (!userInput);
 
 
-            return result;
+            Console.WriteLine($"The square root of {number} is: {result}");
 
 
         }
@@ -137,6 +150,29 @@ namespace CalculatorApp_erik
             }
             return result;
 
+        }
+
+        public static void UserSelect ()
+        {
+                int userOutput = 0;
+            do
+            {
+
+                Console.WriteLine("Would you like to find the sqaure root of a given number? If yes, Enter 1, if no, Enter 2:");
+                var uI = int.TryParse(Console.ReadLine(), out userOutput);
+                switch (userOutput)
+                {
+                    case 1:
+                        SquareRootMethod();
+                        break;
+                    case 2:
+                        Calculator();
+                        break;
+                    default:
+                        InvalidReturn();
+                        break;
+                }
+            } while (userOutput < 1 || userOutput > 2);
         }
         public static void Calculator()
         {
@@ -169,7 +205,7 @@ namespace CalculatorApp_erik
             {
 
 
-                Console.WriteLine("Enter the corresponding number to select your method of opration:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Find the square root\n6. Find the remainder\n");
+                Console.WriteLine("Enter the corresponding number to select your method of operation:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n");
                 userSelect = double.TryParse(Console.ReadLine(), out double userOutput);
                 switch (userOutput)
                 {
@@ -187,12 +223,12 @@ namespace CalculatorApp_erik
                     case 4:
                         result = DivisionMethod(numbers);
                         break;
-                    case 5:
-                        result = SquareRootMethod(numbers);
-                        break;
-                    case 6:
-                        result = ModulusMethod(numbers);
-                        break;
+                    //case 5:
+                    //    result = SquareRootMethod(numbers);
+                    //    break;
+                    //case 6:
+                    //    result = ModulusMethod(numbers);
+                    //    break;
                     default:
                         InvalidReturn();
                         continue;
@@ -201,7 +237,44 @@ namespace CalculatorApp_erik
             } while (userSelect == false);
             Console.WriteLine($"Your result is: {result}");
 
+            
         }
+
+        public static void ContinueOrEnd()
+        {
+            bool userIn;
+            do
+            {
+
+                Console.WriteLine("Would you like to perform more calculations?");
+                Console.WriteLine("If yes, enter a 1; if you would like to exit the calculator, enter 2:");
+
+                userIn = int.TryParse(Console.ReadLine(), out int userOut);
+
+                if (userOut == 1)
+                {
+                    UserSelect();
+                }
+                else if (userOut == 2)
+                {
+                    Console.WriteLine("Thank you for calculating with me!");
+                    Thread.Sleep(1000);
+                    Console.Write(". ");
+                    Thread.Sleep(1000);
+                    Console.Write(". ");
+                    Thread.Sleep(1000);
+                    Console.WriteLine(". \n");
+                    Console.WriteLine("Goodbye!");
+                    break;
+                }
+                else
+                {
+                    InvalidReturn();
+                }
+
+            } while (!userIn);
+        }
+
         public static void InvalidReturn()
         {
             Console.WriteLine("Invalid Entry, please select one of the following options.");

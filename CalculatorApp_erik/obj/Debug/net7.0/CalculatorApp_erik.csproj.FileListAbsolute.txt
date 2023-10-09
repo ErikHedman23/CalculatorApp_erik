@@ -1,4 +1,3 @@
-C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.csproj.AssemblyReference.cache
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.AssemblyInfoInputs.cache
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.AssemblyInfo.cs

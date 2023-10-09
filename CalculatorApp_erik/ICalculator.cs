@@ -14,8 +14,8 @@ namespace CalculatorApp_erik
         public static abstract double SubMethod(params double[] numbers);
         public static abstract double MultiplicationMethod(params double[] numbers);
         public static abstract double DivisionMethod(params double[] numbers);
-        public static abstract double ModulusMethod(params double[] numbers);
-        public static abstract double SquareRootMethod(params double[] numbers);
+        //public static abstract double ModulusMethod(params double[] numbers);
+        public static abstract void SquareRootMethod();
 
 
 
