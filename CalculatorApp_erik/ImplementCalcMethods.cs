@@ -240,7 +240,7 @@ namespace CalculatorApp_erik
             
         }
 
-        public static void ContinueOrEnd()
+        public static bool ContinueOrEnd()
         {
             bool userIn;
             do
@@ -265,14 +265,16 @@ namespace CalculatorApp_erik
                     Thread.Sleep(1000);
                     Console.WriteLine(". \n");
                     Console.WriteLine("Goodbye!");
-                    break;
+                    return false;
+                    
                 }
                 else
                 {
                     InvalidReturn();
                 }
 
-            } while (!userIn);
+            } while (userIn);
+            return true;
         }
 
         public static void InvalidReturn()
