@@ -194,7 +194,9 @@ namespace CalculatorApp_erik
                     }
                     else
                     {
-                        Console.WriteLine($"Invalid Input: {numbersInputed[i]} is not a valid");
+                        Console.WriteLine();
+                        Console.WriteLine($"Invalid Input: {numbersInputed[i]} is not a valid number...\n\n");
+                        
                         continue;
                     }
                 }
