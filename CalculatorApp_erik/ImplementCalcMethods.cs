@@ -47,37 +47,7 @@ namespace CalculatorApp_erik
 
 
 
-        //public static double ModulusMethod(params double[] numbers)
-        //{
-        //    var resultMod = new double[numbers.Length];
-        //    bool userInput = true;
-        //    do
-        //    {
-        //        foreach (double num in numbers)
-        //        {
-        //            Console.WriteLine($"By what number would you like to find the modulus of {num}?");
-        //            userInput = double.TryParse(Console.ReadLine(), out double numToMod);
-        //            if (!userInput)
-        //            {
-        //                Console.WriteLine("Invalid entry");
-        //                continue;
-
-        //            }
-        //            else
-        //            {
-        //                resultMod[0] = num % numToMod;
-
-        //            }
-        //        }
-        //        for (int i = 0; i < numbers.Length; i++)
-        //        {
-
-        //            Console.WriteLine($"The remainder of {numbers[i]} is {result[i]}");
-        //        }
-        //    } while (!userInput);
-
-        //    return resultMod;
-        //}
+       
 
 
 
@@ -223,12 +193,6 @@ namespace CalculatorApp_erik
                     case 4:
                         result = DivisionMethod(numbers);
                         break;
-                    //case 5:
-                    //    result = SquareRootMethod(numbers);
-                    //    break;
-                    //case 6:
-                    //    result = ModulusMethod(numbers);
-                    //    break;
                     default:
                         InvalidReturn();
                         continue;
