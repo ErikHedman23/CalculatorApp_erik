@@ -228,7 +228,13 @@ namespace CalculatorApp_erik
                     Console.Write(". ");
                     Thread.Sleep(1000);
                     Console.WriteLine(". \n");
-                    Console.WriteLine("Goodbye!");
+                    Console.WriteLine("Goodbye!\n");
+                    Thread.Sleep(1000);
+                    Console.Write(". ");
+                    Thread.Sleep(1000);
+                    Console.Write(". ");
+                    Thread.Sleep(3000);            
+                    Console.WriteLine(". \n");
                     return false;
                     
                 }
