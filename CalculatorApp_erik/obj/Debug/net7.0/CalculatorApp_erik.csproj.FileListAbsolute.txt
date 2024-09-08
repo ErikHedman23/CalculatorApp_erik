@@ -12,3 +12,4 @@ C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.pdb
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.genruntimeconfig.cache
 C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\ref\CalculatorApp_erik.dll
+C:\Users\erikd\OneDrive\Desktop\repos\CalculatorApp_erik\CalculatorApp_erik\obj\Debug\net7.0\CalculatorApp_erik.sourcelink.json

@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace CalculatorApp_erik
+﻿namespace CalculatorApp_erik
 {
     public class ImplementCalcMethods : ICalculator
     {
@@ -17,7 +6,6 @@ namespace CalculatorApp_erik
 
         public static double AddMethod(params double[] numbers)
         {
-
             result = 0;
             foreach (double num in numbers)
             {
@@ -25,8 +13,6 @@ namespace CalculatorApp_erik
             }
             return result;
         }
-
-
 
         public static double DivisionMethod(params double[] numbers)
         {
@@ -45,12 +31,6 @@ namespace CalculatorApp_erik
             return result;
         }
 
-
-
-       
-
-
-
         public static double MultiplicationMethod(params double[] numbers)
         {
             result = numbers[0];
@@ -67,10 +47,7 @@ namespace CalculatorApp_erik
                 }
             }
             return result;
-
         }
-
-
 
         public static void SquareRootMethod()
         {
@@ -88,21 +65,13 @@ namespace CalculatorApp_erik
                 }
                 else
                 {
-                result += Math.Sqrt(number);
-
+                    result += Math.Sqrt(number);
                 }
-
-
 
             } while (!userInput);
 
-
             Console.WriteLine($"The square root of {number} is: {result}");
-
-
         }
-
-
 
         public static double SubMethod(params double[] numbers)
         {
@@ -148,11 +117,11 @@ namespace CalculatorApp_erik
         {
             bool userSelect;
             result = 0;
-
             Console.WriteLine("Enter the numbers you would like to calculate (seperated by spaces):\n");
             var userInput = Console.ReadLine();
             string[] numbersInputed = userInput.Split(' ');
             double[] numbers = new double[numbersInputed.Length];
+
             do
             {
 
@@ -170,11 +139,8 @@ namespace CalculatorApp_erik
                 }
             } while (false);
 
-
             do
             {
-
-
                 Console.WriteLine("Enter the corresponding number to select your method of operation:\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n");
                 userSelect = double.TryParse(Console.ReadLine(), out double userOutput);
                 switch (userOutput)
@@ -200,8 +166,6 @@ namespace CalculatorApp_erik
                 }
             } while (userSelect == false);
             Console.WriteLine($"Your result is: {result}");
-
-            
         }
 
         public static bool ContinueOrEnd()
@@ -209,7 +173,6 @@ namespace CalculatorApp_erik
             bool userIn;
             do
             {
-
                 Console.WriteLine("Would you like to perform more calculations?");
                 Console.WriteLine("If yes, enter a 1; if you would like to exit the calculator, enter 2:");
 
@@ -236,7 +199,6 @@ namespace CalculatorApp_erik
                     Thread.Sleep(3000);            
                     Console.WriteLine(". \n");
                     return false;
-                    
                 }
                 else
                 {
@@ -244,14 +206,13 @@ namespace CalculatorApp_erik
                 }
 
             } while (userIn);
+
             return true;
         }
 
         public static void InvalidReturn()
         {
             Console.WriteLine("Invalid Entry, please select one of the following options.");
-
         }
-
     }
 }

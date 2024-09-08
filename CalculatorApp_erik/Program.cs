@@ -1,8 +1,4 @@
-﻿
-
-using CalculatorApp_erik;
-
-
+﻿using CalculatorApp_erik;
 
     ImplementCalcMethods.UserSelect();
     ImplementCalcMethods.ContinueOrEnd();
